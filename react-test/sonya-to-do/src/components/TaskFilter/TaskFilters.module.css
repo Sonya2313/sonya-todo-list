@@ -1,0 +1,24 @@
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d8c7c7;
+  color: #222;
+  cursor: pointer;
+}
+
+.active {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background-color: #8b6f6f;
+  color: white;
+  cursor: pointer;
+}
