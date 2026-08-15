@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { loginUser } from '../api/authApi';
 import { useAuth } from '../context/AuthContext';
-import './LoginPage.css';
+import styles from './LoginPage.module.css';
 
 function LoginPage() {
   const { login, isAuth } = useAuth();
@@ -41,18 +41,26 @@ function LoginPage() {
   }
 
   return (
-    <main className="login-page">
-      <section className="login-card" aria-labelledby="login-title">
-        <div className="login-card__header">
-          <span className="login-card__badge">TaskFlow</span>
+    <main className={styles.loginPage}>
+      <div className={`${styles.loginBlob} ${styles.loginBlobPink}`} />
+      <div className={`${styles.loginBlob} ${styles.loginBlobRed}`} />
+      <div className={`${styles.loginBlob} ${styles.loginBlobPurple}`} />
 
-          <h1 id="login-title">С возвращением</h1>
+      <Link className={styles.loginLogo} to="/">
+        SONYA.TASKS
+      </Link>
 
-          <p>Войдите в аккаунт, чтобы продолжить работу с задачами.</p>
+      <section className={styles.loginCard} aria-labelledby="login-title">
+        <div className={styles.loginCardHeader}>
+          <span className={styles.loginCardEyebrow}>WELCOME BACK</span>
+
+          <h1 id="login-title">Let’s make today simple.</h1>
+
+          <p>Войдите в свой аккаунт.</p>
         </div>
 
-        <form className="login-form" onSubmit={handleSubmit}>
-          <label className="login-form__field" htmlFor="email">
+        <form className={styles.loginForm} onSubmit={handleSubmit}>
+          <label className={styles.loginFormField} htmlFor="email">
             <span>Email</span>
 
             <input
@@ -66,8 +74,8 @@ function LoginPage() {
             />
           </label>
 
-          <label className="login-form__field" htmlFor="password">
-            <span>Пароль</span>
+          <label className={styles.loginFormField} htmlFor="password">
+            <span>Password</span>
 
             <input
               id="password"
@@ -81,24 +89,27 @@ function LoginPage() {
           </label>
 
           {error && (
-            <p className="login-form__error" role="alert">
+            <p className={styles.loginFormError} role="alert">
               {error}
             </p>
           )}
 
           <button
-            className="login-form__submit"
+            className={styles.loginFormSubmit}
             type="submit"
             disabled={loading}
           >
-            {loading ? 'Выполняем вход...' : 'Войти'}
+            {loading ? 'Выполняем вход...' : 'SIGN IN'}
+            {!loading && <span aria-hidden="true"></span>}
           </button>
         </form>
 
-        <p className="login-card__footer">
-          Нет аккаунта? <Link to="/register">Зарегистрироваться</Link>
+        <p className={styles.loginCardFooter}>
+          Нет аккаунта? <Link to="/register">Создать аккаунт</Link>
         </p>
       </section>
+
+      <p className={styles.loginNote}>MAKE SPACE FOR WHAT MATTERS</p>
     </main>
   );
 }

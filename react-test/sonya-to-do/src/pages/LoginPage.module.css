@@ -1,0 +1,297 @@
+.loginPage {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  padding: 88px 24px 56px;
+  color: #2e2d33;
+  background: #fbfaf8;
+  font-family: Arial, sans-serif;
+}
+
+.loginPage,
+.loginPage * {
+  box-sizing: border-box;
+}
+
+.loginBlob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.loginBlobPink {
+  top: -155px;
+  left: -135px;
+  width: 410px;
+  height: 410px;
+  opacity: 0.72;
+  background:
+    radial-gradient(circle, rgba(255, 157, 201, 0.9) 0 30%, transparent 31%),
+    radial-gradient(
+      circle at 68% 38%,
+      rgba(255, 189, 217, 0.7) 0 22%,
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 45% 75%,
+      rgba(255, 176, 208, 0.65) 0 26%,
+      transparent 27%
+    );
+  filter: blur(8px);
+}
+
+.loginBlobRed {
+  right: -160px;
+  bottom: -160px;
+  width: 490px;
+  height: 430px;
+  opacity: 0.8;
+  background:
+    radial-gradient(circle at 38% 30%, #ff5164 0 20%, transparent 21%),
+    radial-gradient(circle at 68% 50%, #ef3349 0 26%, transparent 27%),
+    radial-gradient(circle at 35% 75%, #ff6b7a 0 25%, transparent 26%);
+  filter: blur(6px);
+}
+
+.loginBlobPurple {
+  top: 18%;
+  right: 18%;
+  width: 150px;
+  height: 150px;
+  opacity: 0.28;
+  background: #a78bfa;
+  filter: blur(36px);
+}
+
+.loginLogo,
+.loginCard,
+.loginNote {
+  position: relative;
+  z-index: 1;
+}
+
+.loginLogo {
+  position: absolute;
+  top: 30px;
+  left: max(32px, 5vw);
+  color: #2e2d33;
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.loginCard {
+  width: min(100%, 430px);
+  padding: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 22px 55px rgba(75, 55, 88, 0.16);
+  backdrop-filter: blur(14px);
+  animation: showCard 0.7s ease-out both;
+}
+
+.loginCardHeader {
+  margin-bottom: 28px;
+}
+
+.loginCardEyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #786e80;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.11em;
+}
+
+.loginCard h1 {
+  margin: 0;
+  color: #302d33;
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.loginCardHeader p {
+  margin: 17px 0 0;
+  color: #66616b;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.loginForm {
+  display: grid;
+  gap: 17px;
+}
+
+.loginFormField {
+  display: grid;
+  gap: 8px;
+  color: #514b57;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.loginFormField input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #e3dfe7;
+  border-radius: 13px;
+  outline: none;
+  color: #302d33;
+  background: rgba(255, 255, 255, 0.84);
+  font: inherit;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.loginFormField input::placeholder {
+  color: #aaa3ae;
+}
+
+.loginFormField input:focus {
+  border-color: #7058df;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(112, 88, 223, 0.15);
+}
+
+.loginFormField input:disabled {
+  cursor: not-allowed;
+  color: #aaa3ae;
+  background: #f4f1f5;
+}
+
+.loginFormError {
+  margin: -2px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #ffd0d7;
+  border-radius: 12px;
+  color: #b4233c;
+  background: #fff1f3;
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.loginFormSubmit {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #fff;
+  background: #5946df;
+  box-shadow: 0 11px 21px rgba(89, 70, 223, 0.25);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 850;
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.loginFormSubmit:hover:not(:disabled) {
+  background: #4434be;
+  box-shadow: 0 14px 25px rgba(89, 70, 223, 0.32);
+  transform: translateY(-2px);
+}
+
+.loginFormSubmit:focus-visible,
+.loginLogo:focus-visible,
+.loginCardFooter a:focus-visible {
+  outline: 3px solid rgba(89, 70, 223, 0.38);
+  outline-offset: 3px;
+}
+
+.loginFormSubmit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.loginCardFooter {
+  margin: 24px 0 0;
+  color: #706a74;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.loginCardFooter a {
+  color: #ef4761;
+  font-weight: 850;
+  text-decoration: none;
+}
+
+.loginCardFooter a:hover {
+  text-decoration: underline;
+}
+
+.loginNote {
+  position: absolute;
+  right: 0;
+  bottom: 24px;
+  left: 0;
+  color: #77727b;
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-align: center;
+}
+
+@keyframes showCard {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .loginPage {
+    padding: 82px 18px 54px;
+  }
+
+  .loginLogo {
+    top: 24px;
+    left: 20px;
+  }
+
+  .loginCard {
+    padding: 30px 22px;
+    border-radius: 23px;
+  }
+
+  .loginBlobPink {
+    top: -185px;
+    left: -235px;
+  }
+
+  .loginBlobRed {
+    right: -260px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loginPage *,
+  .loginPage *::before,
+  .loginPage *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,413 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  color: #2e2d33;
+  background: #fbfaf8;
+  font-family: Arial, sans-serif;
+}
+
+.blob {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.blobPink {
+  top: 40px;
+  left: -120px;
+  width: 410px;
+  height: 410px;
+  opacity: 0.72;
+  background:
+    radial-gradient(circle, rgba(255, 157, 201, 0.9) 0 30%, transparent 31%),
+    radial-gradient(
+      circle at 68% 38%,
+      rgba(255, 189, 217, 0.7) 0 22%,
+      transparent 23%
+    ),
+    radial-gradient(
+      circle at 45% 75%,
+      rgba(255, 176, 208, 0.65) 0 26%,
+      transparent 27%
+    );
+  filter: blur(8px);
+}
+
+.blobRed {
+  right: -100px;
+  bottom: -110px;
+  width: 470px;
+  height: 410px;
+  opacity: 0.86;
+  background:
+    radial-gradient(circle at 38% 30%, #ff5164 0 20%, transparent 21%),
+    radial-gradient(circle at 68% 50%, #ef3349 0 26%, transparent 27%),
+    radial-gradient(circle at 35% 75%, #ff6b7a 0 25%, transparent 26%);
+  filter: blur(5px);
+}
+
+.blobPurple {
+  top: 120px;
+  right: 14%;
+  width: 150px;
+  height: 150px;
+  opacity: 0.34;
+  background: #a78bfa;
+  filter: blur(34px);
+}
+
+.header,
+.hero,
+.taskCard,
+.footer {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  display: flex;
+  width: min(100% - 64px, 1250px);
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 28px 0;
+}
+
+.logo {
+  color: #2e2d33;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+
+.headerLinks {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.headerLinks a {
+  color: #4f4e55;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.registerLink {
+  padding: 10px 15px;
+  border-radius: 999px;
+  color: #fff !important;
+  background: #5747df;
+}
+
+.hero {
+  width: min(100% - 64px, 1250px);
+  margin: 100px auto 0;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: #797680;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  animation: slideFromLeft 0.65s ease-out both;
+}
+
+.title {
+  max-width: 960px;
+  margin: 0;
+  font-size: clamp(3.4rem, 8vw, 7.8rem);
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 0.88;
+}
+
+.title span {
+  color: #f0445c;
+}
+
+.description {
+  max-width: 430px;
+  margin: 34px 0 0;
+  color: #5e5b64;
+  font-size: 1rem;
+  line-height: 1.6;
+  animation: slideFromLeft 0.65s 0.15s ease-out both;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+  animation: slideFromLeft 0.65s 0.3s ease-out both;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 49px;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.primaryButton {
+  color: #fff;
+  background: #5946df;
+  box-shadow: 0 11px 21px rgba(89, 70, 223, 0.26);
+}
+
+.primaryButton:hover {
+  background: #4434be;
+  box-shadow: 0 14px 25px rgba(89, 70, 223, 0.32);
+  transform: translateY(-2px);
+}
+
+.primaryButton span {
+  font-size: 1.1rem;
+}
+
+.secondaryButton {
+  border: 1px solid #dedbe1;
+  color: #3f3d44;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.secondaryButton:hover {
+  background: #fff;
+  transform: translateY(-2px);
+}
+
+.taskCard {
+  position: absolute;
+  right: max(6vw, 60px);
+  bottom: 78px;
+  width: 285px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  border-radius: 24px;
+  background: rgba(234, 215, 255, 0.88);
+  box-shadow: 0 18px 35px rgba(91, 62, 113, 0.18);
+  animation:
+    slideFromRight 0.8s 0.45s ease-out both,
+    floatCard 4s 1.3s ease-in-out infinite;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardLabel {
+  color: #695882;
+  font-size: 0.7rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.cardDate {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #5946df;
+  font-size: 0.75rem;
+  font-weight: 850;
+}
+
+.taskCard h2 {
+  margin: 18px 0;
+  color: #393242;
+  font-size: 1.5rem;
+  letter-spacing: -0.045em;
+  line-height: 1.03;
+}
+
+.taskList {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.taskList li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #554d5e;
+  font-size: 0.79rem;
+  font-weight: 700;
+}
+
+.check,
+.emptyCheck {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 900;
+}
+
+.check {
+  color: #fff;
+  background: #f0526c;
+}
+
+.emptyCheck {
+  border: 2px solid #9679b5;
+}
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 22px;
+  left: 0;
+  display: flex;
+  width: min(100% - 64px, 1250px);
+  justify-content: space-between;
+  margin: 0 auto;
+  color: #797680;
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px) rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(-4deg);
+  }
+}
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    margin-top: 72px;
+  }
+
+  .taskCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 60px 8% 100px auto;
+  }
+
+  .footer {
+    position: relative;
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .header,
+  .hero,
+  .footer {
+    width: min(100% - 36px, 1250px);
+  }
+
+  .header {
+    padding-top: 20px;
+  }
+
+  .headerLinks {
+    gap: 10px;
+  }
+
+  .headerLinks a {
+    font-size: 0.77rem;
+  }
+
+  .registerLink {
+    padding: 9px 12px;
+  }
+
+  .hero {
+    margin-top: 70px;
+  }
+
+  .title {
+    font-size: clamp(3.2rem, 17vw, 5.4rem);
+    line-height: 0.92;
+  }
+
+  .description {
+    margin-top: 26px;
+  }
+
+  .taskCard {
+    width: min(100%, 285px);
+    margin: 48px auto 70px;
+  }
+
+  .footer {
+    gap: 10px;
+    font-size: 0.56rem;
+  }
+
+  .blobPink {
+    left: -220px;
+  }
+
+  .blobRed {
+    right: -250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
